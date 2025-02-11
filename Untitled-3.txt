@@ -1,0 +1,18 @@
+
+        // Auto logout after 3 minutes of inactivity
+        let timeout;
+
+        function resetTimeout() {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                window.location.href = 'adminlogout.php';
+            }, 280000); // 3 minutes in milliseconds
+        }
+
+        // Reset timeout on any user interaction
+        window.onload = resetTimeout;
+        document.onmousemove = resetTimeout;
+        document.onkeypress = resetTimeout;
+        document.onclick = resetTimeout;
+        document.onscroll = resetTimeout;
+        
